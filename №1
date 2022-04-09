@@ -1,0 +1,53 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Выберете порядок рортировки '1' - прямой , '2' - обратный , '3' - оба " );
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        if (x == 1) {
+            rightSort();
+        }
+        if (x == 2) {
+            reversSort();
+        }
+        if(x == 3){
+            rightSort();
+            reversSort();
+        }
+    }
+
+    public static void rightSort() {
+        char[] array = {'b', 'f', 'a', 'w', 'r', 'u'};
+        for (int left = 0; left < array.length; left++) {
+            char value = array[left];
+            int i = left - 1;
+            for (; i >= 0; i--) {
+                if (value < array[i]) {
+                    array[i + 1] = array[i];
+                } else {
+                    break;
+                }
+            }
+            array[i + 1] = value;
+        }
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    public static void reversSort() {
+        char[] array = {'b', 'f', 'a', 'w', 'r', 'u'};
+        for (int left = 0; left < array.length; left++) {
+            char value = array[left];
+            int i = left - 1;
+            for (; i >= 0; i--) {
+                if (value > array[i]) {
+                    array[i + 1] = array[i];
+                } else {
+                    break;
+                }
+            }
+            array[i + 1] = value;
+        }
+        System.out.println(Arrays.toString(array));
+
+    }
+}
